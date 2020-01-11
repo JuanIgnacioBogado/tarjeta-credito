@@ -53,6 +53,7 @@ body {
 	width: 100%;
 	background: url(../img/bg-tarjeta/bg-tarjeta-02.jpg);
 	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .delantera .logo-marca {
@@ -96,6 +97,7 @@ body {
 /* ---------- TARJETA TRASERA ---------- */
 .trasera {
 	background: url(../img/bg-tarjeta/bg-tarjeta-02.jpg);
+	background-repeat: no-repeat;
 	background-size: cover;
 	position: absolute;
 	top: 0;
@@ -517,7 +519,7 @@ body {
 	
 	.trasera .link-banco {
 		color: #fff;
-		font-size: 15px;
+		font-size: 12px;
 	}
 
 	/* FORMULARIO TARJETA */
