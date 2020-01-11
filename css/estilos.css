@@ -1,0 +1,556 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #ddeefc;
+	font-family: 'Lato', sans-serif;
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	padding: 40px 20px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Estilos Generales de las Tarjetas */
+
+.tarjeta {
+	width: 100%;
+	max-width: 550px;
+	position: relative;
+	color: #fff;
+	transition: .3s ease all;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.tarjeta.active {
+	transform: rotateY(180deg);
+}
+
+.tarjeta > div {
+	padding: 30px;
+	border-radius: 15px;
+	min-height: 315px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0px 10px 10px 0 rgba(90, 116, 148,0.3);
+}
+
+/* ---------- TARJETA DELANTERA ---------- */
+
+.tarjeta .delantera {
+	width: 100%;
+	background: url(../img/bg-tarjeta/bg-tarjeta-02.jpg);
+	background-size: cover;
+}
+
+.delantera .logo-marca {
+	text-align: right;
+	min-height: 50px;
+}
+
+.delantera .logo-marca img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	max-width: 80px;
+}
+
+.delantera .chip {
+	width: 100%;
+	max-width: 50px;
+	margin-bottom: 20px;
+}
+
+.delantera .grupo .label {
+	font-size: 16px;
+	color: #7d8994;
+	margin-bottom: 5px;
+}
+
+.delantera .grupo .numero,
+.delantera .grupo .nombre,
+.delantera .grupo .expiracion {
+	color: #fff;
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+.delantera .flexbox {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+/* ---------- TARJETA TRASERA ---------- */
+.trasera {
+	background: url(../img/bg-tarjeta/bg-tarjeta-02.jpg);
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
+
+.trasera .barra-magnetica {
+	height: 40px;
+	background: #000;
+	width: 100%;
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+
+.trasera .datos {
+	margin-top: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.trasera .datos p {
+	margin-bottom: 5px;
+}
+
+.trasera .datos #firma {
+	width: 70%;
+}
+
+.trasera .datos #firma .firma {
+	height: 40px;
+	background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
+
+.trasera .datos #firma .firma p {
+	line-height: 40px;
+	font-family: 'Liu Jian Mao Cao', cursive;
+	color: #000;
+	font-size: 30px;
+	padding: 0 10px;
+	text-transform: capitalize;
+}
+
+.trasera .datos #ccv {
+	width: 20%;
+}
+
+.trasera .datos #ccv .ccv{
+	background: #fff;
+	height: 40px;
+	color: #000;
+	padding: 10px;
+	text-align: center;
+}
+
+.trasera .leyenda {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.trasera .link-banco {
+	color: #fff;
+	font-size: 14px;
+}
+
+/* ---------- CONTENEDOR BOTON ---------- */
+.contenedor-btn .btn-abrir-formulario {
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 20px;
+	background: #2364d2;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	position: relative;
+	border-radius: 100%;
+	top: -25px;
+	z-index: 3;
+	box-shadow: -5px 4px 8px rgba(24, 56, 182, 0.4);
+	padding: 5px;
+	transition: all .2s ease;
+	outline: none;
+}
+
+.contenedor-btn .btn-abrir-formulario:hover {
+	background: #1850b1;
+}
+
+.contenedor-btn .btn-abrir-formulario.active {
+	transform: rotate(45deg);
+}
+
+
+/* FORMULARIO TARJETA */
+.formulario-tarjeta {
+	background: #fff;
+	width: 100%;
+	padding: 150px 30px 30px 30px;
+	max-width: 700px;
+	border-radius: 10px;
+	position: relative;
+	top: -150px;
+	z-index: 1;
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	transition: clip-path .3s ease-out;
+}
+
+.formulario-tarjeta.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.formulario-tarjeta label {
+	display: block;
+	color: #7d8994;
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+
+.formulario-tarjeta input,
+.formulario-tarjeta select,
+.btn-enviar {
+	border: 2px solid #ced6e0;
+	font-size: 18px;
+	height: 50px;
+	width: 100%;
+	padding: 5px 12px;
+	transition: .3s ease all;
+	border-radius: 5px;
+	outline: none;
+}
+
+.formulario-tarjeta input:hover,
+.formulario-tarjeta select:hover,
+.btn-enviar:hover {
+	border: 2px solid #93bded;
+}
+
+.formulario-tarjeta input:focus,
+.formulario-tarjeta select:focus,
+.btn-enviar:focus {
+	outline: rgb(4, 4, 4);
+	box-shadow: 1px 7px 10px -5px rgba(90, 116, 148,0.3);
+}
+
+.formulario-tarjeta input {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.formulario-tarjeta .flexbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.formulario-tarjeta .expira {
+	width: 100%;
+}
+
+.formulario-tarjeta .ccv {
+	min-width: 100px;
+}
+
+.formulario-tarjeta .grupo-select {
+	width: 100%;
+	margin-right: 15px;
+	position: relative;
+}
+
+.formulario-tarjeta select {
+	-webkit-appearance: none;
+}
+
+.formulario-tarjeta .grupo-select i {
+	position: absolute;
+	color: #CED6E0;
+	top: 18px;
+	right: 15px;
+	transition: .3s ease all;
+}
+
+.formulario-tarjeta .grupo-select:hover i {
+	color: #93bfed;
+}
+
+.formulario-tarjeta .btn-enviar {
+	border: none;
+	padding: 10px;
+	font-size: 22px;
+	color: #fff;
+	background: #2364d2;
+	box-shadow: 2px 2px 10px 0px rgba(0, 85, 212,0.4);
+	cursor: pointer;
+}
+
+.formulario-tarjeta .btn-enviar:hover {
+	background: #1850b1;
+}
+
+
+/* ---- ---- MEDIAUQERIES ---- ---- */
+@media screen and (max-width: 530px) {
+
+	.contenedor { 
+		width: 100%;
+		padding: 20px;
+	}
+
+	/* Estilos Generales de las Tarjetas */
+
+	.tarjeta > div {
+		padding: 40px;
+		min-height: 100px;
+		justify-content: space-between;
+	}
+
+	.delantera .logo-marca {
+		position: absolute;
+		left: 80%;
+		top: 35px;
+	}
+	
+	.delantera .logo-marca img {
+		max-width: 60px;
+	}
+	
+	.delantera .chip {
+		max-width: 35px;
+	}
+	
+	.delantera .grupo .numero,
+	.delantera .grupo .nombre,
+	.delantera .grupo .expiracion {
+		font-size: 16px;
+	}
+	
+	.delantera .flexbox {
+		margin-top: 20px;
+	}
+
+	.grupo .expiracion {
+		text-align: right;
+	}
+
+	.contenedor-btn .btn-abrir-formulario {
+		width: 40px;
+		height: 40px;
+		font-size: 15px;
+		line-height: 15px;
+		top: -20px;
+	}
+
+	/* TRASERA */
+
+	.trasera .barra-magnetica {
+		height: 30px;
+	}
+	
+	.trasera .datos {
+		margin-top: 38px;
+	}
+	
+	.trasera .datos #firma {
+		width: 75%;
+	}
+	
+	.trasera .datos #firma .firma {
+		height: 30px;
+	}
+	
+	.trasera .datos #firma .firma p {
+		line-height: 25px;
+		font-size: 25px;
+	}
+	
+	.trasera .datos #ccv {
+		width: 20%;
+	}
+	
+	.trasera .datos #ccv .ccv{
+		height: 30px;
+		line-height: 10px;
+	}
+	
+	.trasera .leyenda {
+		font-size: 12px;
+		line-height: 12px;
+		padding: 10px 0;
+	}
+	
+	.trasera .link-banco {
+		color: #fff;
+		font-size: 15px;
+	}
+
+	/* FORMULARIO TARJETA */
+
+	.formulario-tarjeta {
+		padding: 150px 15px 15px 15px;
+	}
+
+	.formulario-tarjeta input,
+	.formulario-tarjeta select,
+	.btn-enviar {
+		font-size: 15px;
+		height: 40px;
+		width: 100%;
+	}
+
+	.formulario-tarjeta .flexbox {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.formulario-tarjeta .expira {
+		width: 150%;
+	}
+
+	.formulario-tarjeta .grupo-select i {
+		position: absolute;
+		color: #CED6E0;
+		top: 13px;
+	}
+
+	.formulario-tarjeta .btn-enviar {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 380px) {
+
+	.contenedor { 
+		width: 100%;
+		padding: 10px;
+	}
+
+	/* Estilos Generales de las Tarjetas */
+
+	.tarjeta > div {
+		padding: 25px 25px;
+		min-height: 100px;
+		justify-content: space-between;
+	}
+
+	.delantera .logo-marca {
+		position: absolute;
+		left: 75%;
+		top: 20px;
+	}
+	
+	.delantera .logo-marca img {
+		max-width: 60px;
+	}
+	
+	.delantera .chip {
+		max-width: 35px;
+	}
+	
+	.delantera .grupo .numero,
+	.delantera .grupo .nombre,
+	.delantera .grupo .expiracion {
+		font-size: 16px;
+	}
+	
+	.delantera .flexbox {
+		margin-top: 20px;
+	}
+
+	.grupo .expiracion {
+		text-align: right;
+	}
+
+	.contenedor-btn .btn-abrir-formulario {
+		width: 40px;
+		height: 40px;
+		font-size: 15px;
+		line-height: 15px;
+		top: -20px;
+	}
+
+	/* TRASERA */
+
+	.trasera .barra-magnetica {
+		height: 30px;
+	}
+	
+	.trasera .datos {
+		margin-top: 38px;
+	}
+	
+	.trasera .datos #firma {
+		width: 75%;
+	}
+	
+	.trasera .datos #firma .firma {
+		height: 30px;
+	}
+	
+	.trasera .datos #firma .firma p {
+		line-height: 25px;
+		font-size: 25px;
+	}
+	
+	.trasera .datos #ccv {
+		width: 20%;
+	}
+	
+	.trasera .datos #ccv .ccv{
+		height: 30px;
+		line-height: 10px;
+	}
+	
+	.trasera .leyenda {
+		font-size: 12px;
+		line-height: 12px;
+		padding: 10px 0;
+	}
+	
+	.trasera .link-banco {
+		color: #fff;
+		font-size: 15px;
+	}
+
+	/* FORMULARIO TARJETA */
+
+	.formulario-tarjeta {
+		padding: 150px 15px 15px 15px;
+	}
+
+	.formulario-tarjeta input,
+	.formulario-tarjeta select,
+	.btn-enviar {
+		font-size: 15px;
+		height: 40px;
+		width: 100%;
+	}
+
+	.formulario-tarjeta .flexbox {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.formulario-tarjeta .expira {
+		width: 150%;
+	}
+
+	.formulario-tarjeta .grupo-select i {
+		position: absolute;
+		color: #CED6E0;
+		top: 13px;
+	}
+
+	.formulario-tarjeta .btn-enviar {
+		font-size: 15px;
+	}
+}
+
